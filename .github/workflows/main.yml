@@ -5,7 +5,7 @@ on:
     branches:
       - testpraf
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
+    - cron: '*/5 * * * *'  # Every 6 hours
 
 jobs:
   trigger-azure-devops:
