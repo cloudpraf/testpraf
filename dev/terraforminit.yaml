@@ -1,0 +1,7 @@
+- script: terraform init
+  displayName: 'Terraform Init'
+
+  - script: terraform validate
+  displayName: 'Terraform Validate'
+
+
