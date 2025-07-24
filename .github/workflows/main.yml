@@ -1,0 +1,20 @@
+name: Sync Conditional Access Policies to Azure DevOps
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+
+jobs:
+  trigger-azure-devops:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger Azure DevOps Pipeline
+      run: |
+        curl -X POST \
+          -u ":${{ secrets.AZURE_DEVOPS_PAT }}" \
+          -H "Content-Type: application/json" \
+          "https://dev.azure.com/${{https://dev.azure.com/cloudpraf/_git/testpraf}}/${{ secrets.AZURE_DEVOPS_PROJECT }}/_apis/pipelines/${{ secrets.AZURE_DEVOPS_PIPELINE_ID }}/runs?api-version=7.0" \
+          -d '{}'
