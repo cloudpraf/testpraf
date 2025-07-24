@@ -3,7 +3,7 @@ name: Sync Conditional Access Policies to Azure DevOps
 on:
   push:
     branches:
-      - main
+      - testpraf
   schedule:
     - cron: '0 */6 * * *'  # Every 6 hours
 
